@@ -76,13 +76,26 @@ const episodesData = {
 };
 
 test('App can render the Episodes components ater the API call has finished', async () => {
-    mockFetchShow.mockResolvedValueOnce(episodesData);
+    mockFetchShow.mockResolvedValue(episodesData);
 
-    render(<App />);
+    // const { rerender } = await render(<App />);
 
-    const seasonSelect = screen.findByText(/select a season/i);
-    const selectSeason = screen.findByDisplayValue(/season one/i);
+    render(<App />)
 
-    
-    // userEvent.click(seasonSelect)
+    // const title = screen.findAllByRole('heading', /stranger things/i)
+
+    // const seasonSelect = screen.findByTestId(/dropdown/i);
+    // const selectSeason = screen.findByDisplayValue(/season one/i);
+
+    // userEvent.click(screen.getByText('Select a season'))    
+    // userEvent.click(screen.findByTestId(/dropdown/i))    
+
+    // expect(getByTestId('dropdown')).toHaveFormValues({ season: '' })
+    const ariaAttempt = screen.findByRole('generic', /select a season/i);
+    const ariaSelect = screen.findByRole('option', /season 1/i);
+
+    // await userEvent.selectOptions(ariaAttempt);
+
+    // expect(screen.findByRole('option', /season 1/i).selected).toBe(true)
+
 })
