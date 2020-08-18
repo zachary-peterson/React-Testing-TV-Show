@@ -14,15 +14,15 @@ const episodesData = [
     airstamp: "2016-07-15T12:00:00+00:00",
     runtime: 60,
     image: {
-        medium: "http://static.tvmaze.com/uploads/images/medium_landscape/67/168918.jpg",
-        original: "http://static.tvmaze.com/uploads/images/original_untouched/67/168918.jpg"
-        },
+      medium: "http://static.tvmaze.com/uploads/images/medium_landscape/67/168918.jpg",
+      original: "http://static.tvmaze.com/uploads/images/original_untouched/67/168918.jpg"
+    },
     summary: "<p>A young boy mysteriously disappears, and his panicked mother demands that the police find him. Meanwhile, the boy's friends conduct their own search, and meet a mysterious girl in the forest.</p>",
     _links: {
-        self: {
-            href: "http://api.tvmaze.com/episodes/553946"
-            }
-        }
+      self: {
+        href: "http://api.tvmaze.com/episodes/553946"
+      }
+    }
 },
 {
     id: 578663,
@@ -35,15 +35,15 @@ const episodesData = [
     airstamp: "2016-07-15T12:00:00+00:00",
     runtime: 60,
     image: {
-        medium: "http://static.tvmaze.com/uploads/images/medium_landscape/72/181376.jpg",
-        original: "http://static.tvmaze.com/uploads/images/original_untouched/72/181376.jpg"
-        },
+      medium: "http://static.tvmaze.com/uploads/images/medium_landscape/72/181376.jpg",
+      original: "http://static.tvmaze.com/uploads/images/original_untouched/72/181376.jpg"
+    },
     summary: "<p>While the search for the missing Will continues, Joyce tells Jim about a call she apparently received from her son. Meanwhile, Jane warns Mike that there are bad people after her, and he realizes that she knows what happened to Will.</p>",
     _links: {
-        self: {
-            href: "http://api.tvmaze.com/episodes/578663"
-            }
-        }
+      self: {
+        href: "http://api.tvmaze.com/episodes/578663"
+      }
+    }
 },
 {
     id: 578664,
@@ -56,29 +56,28 @@ const episodesData = [
     airstamp: "2016-07-15T12:00:00+00:00",
     runtime: 60,
     image: {
-        medium: "http://static.tvmaze.com/uploads/images/medium_landscape/67/168920.jpg",
-        original: "http://static.tvmaze.com/uploads/images/original_untouched/67/168920.jpg"
-        },
+      medium: "http://static.tvmaze.com/uploads/images/medium_landscape/67/168920.jpg",
+      original: "http://static.tvmaze.com/uploads/images/original_untouched/67/168920.jpg"
+    },
     summary: "<p>While Nancy looks for a missing Barbara and realizes that Jonathan may have been the last person to see her, Mike and his friends go out with Jane to find the missing Will. Meanwhile, Jim tracks Will to the lab.</p>",
     _links: {
-        self: {
-            href: "http://api.tvmaze.com/episodes/578664"
-            }
-        }
-    },
-];
+      self: {
+        href: "http://api.tvmaze.com/episodes/578664"
+      }
+    }
+}];
 
 test('Episodes component renders', () => {
-    const { rerender } = render(<Episodes episodes={[]} />);
+const { rerender } = render(<Episodes episodes={[]} />);
 
-    let episodesMapped = screen.queryAllByTestId(/episodes/i);
-    expect(episodesMapped).toHaveLength(0);
-    
-    // test to break it
-    // expect(episodesMapped).toHaveLength(1);
+let episodesMapped = screen.queryAllByTestId(/episodes/i);
+expect(episodesMapped).toHaveLength(0);
 
-    rerender(<Episodes episodes={episodesData} />);
+  // test to break it
+  // expect(episodesMapped).toHaveLength(1);
 
-    episodesMapped = screen.getAllByTestId(/episodes/i)
-    expect(episodesMapped).toHaveLength(3);
+rerender(<Episodes episodes={episodesData} />);
+
+episodesMapped = screen.getAllByTestId(/episodes/i)
+expect(episodesMapped).toHaveLength(3);
 })
