@@ -160,6 +160,9 @@ test('Test when a season is selected, episodes render', async () => {
     getByText(/select a season/i)
   });
 
+  let allEpisodes = queryAllByTestId(/episodes/i);
+
+  expect(allEpisodes).toHaveLength(0);
   const dropdownList = getByText(/select a season/i);
 
   userEvent.click(dropdownList);
@@ -168,7 +171,7 @@ test('Test when a season is selected, episodes render', async () => {
 
   userEvent.click(selectSeason);
 
-  const allEpisodes = queryAllByTestId(/episodes/i);
+  allEpisodes = queryAllByTestId(/episodes/i);
 
   expect(allEpisodes).toHaveLength(3)
 })
