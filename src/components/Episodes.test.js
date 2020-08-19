@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Episodes from './Episodes';
 
 const episodesData = [
@@ -67,17 +67,17 @@ const episodesData = [
     }
 }];
 
-test('Episodes component renders', () => {
-const { rerender } = render(<Episodes episodes={[]} />);
+test('Episodes component renders with an empty array, when episodes are fetched, they can be rendered', () => {
+  const { rerender, queryAllByTestId, getAllByTestId } = render(<Episodes episodes={[]} />);
 
-let episodesMapped = screen.queryAllByTestId(/episodes/i);
-expect(episodesMapped).toHaveLength(0);
+  let episodesMapped = queryAllByTestId(/episodes/i);
+  expect(episodesMapped).toHaveLength(0);
 
-  // test to break it
-  // expect(episodesMapped).toHaveLength(1);
+    // test to break it
+    // expect(episodesMapped).toHaveLength(1);
 
-rerender(<Episodes episodes={episodesData} />);
+  rerender(<Episodes episodes={episodesData} />);
 
-episodesMapped = screen.getAllByTestId(/episodes/i)
-expect(episodesMapped).toHaveLength(3);
+  episodesMapped = queryAllByTestId(/episodes/i)
+  expect(episodesMapped).toHaveLength(3);
 })
